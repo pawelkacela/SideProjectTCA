@@ -20,7 +20,7 @@ public struct AppWrapper: App {
     
    public var body: some Scene {
         WindowGroup {
-            WrView()
+            WrView(store: store)
         }
     }
 }

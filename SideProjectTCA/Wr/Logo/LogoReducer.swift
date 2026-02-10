@@ -14,4 +14,5 @@ public struct LogoReducer: Reducer {
     public enum State: Equatable {
         case loading
     }
+    
 }

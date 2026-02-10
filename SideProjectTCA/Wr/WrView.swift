@@ -10,12 +10,20 @@ import ComposableArchitecture
 
 struct WrView: View {
     
+    private let store: StoreOf<WrReducer>
+    
+    public init(store: StoreOf<WrReducer>) {
+        self.store = store
+    }
+    
     var body: some View {
+        LogoView(
+            store: store.scope(
+                state: \.logo,
+                action: \.logo
+            )
+        )
         Text("Hello")
     }
 
-}
-
-#Preview {
-    WrView()
 }

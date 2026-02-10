@@ -17,6 +17,7 @@ public struct WrReducer: Reducer {
     
     public enum Action {
         case loadData
+        case logo(LogoReducer.Action)
     }
     
     public init() { }
