@@ -24,6 +24,15 @@ struct WrView: View {
             )
         )
         Text("Hello")
+        Button {
+//            store.send(.logo(.didLoad("aaa")))
+            
+            print("test")
+        } label: {
+            Text("click here")
+        }
+
     }
+    
 
 }

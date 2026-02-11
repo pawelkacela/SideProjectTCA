@@ -9,7 +9,7 @@ import Foundation
 import ComposableArchitecture
 
 @Reducer
-public struct WrReducer: Reducer {
+public struct WrReducer {
     @ObservableState
     public struct State: Equatable {
         var logo: LogoReducer.State
@@ -21,6 +21,16 @@ public struct WrReducer: Reducer {
     }
     
     public init() { }
+    
+//    var body: some ReducerOf<Self> {
+//        Reduce { state, action in
+//            switch action {
+//                case .loadData:
+//                return .none
+//            case .logo()
+//            }
+//        }
+//    }
 }
 
 extension WrReducer.State {

@@ -33,33 +33,9 @@
 		84F5AA162F3B6B3400639267 /* SideProjectTCAUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SideProjectTCAUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		84F5AA6A2F3B8E3700639267 /* Exceptions for "SideProjectTCA" folder in "SideProjectTCA" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				CoreData/SideProjectTCA.xcdatamodeld,
-			);
-			target = 84F5A9F92F3B6B3200639267 /* SideProjectTCA */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
-		84F5AA6B2F3B8E3700639267 /* Exceptions for "SideProjectTCA" folder in "Compile Sources" phase from "SideProjectTCA" target */ = {
-			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
-			buildPhase = 84F5A9F62F3B6B3200639267 /* Sources */;
-			membershipExceptions = (
-				CoreData/SideProjectTCA.xcdatamodeld,
-			);
-		};
-/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		84F5A9FC2F3B6B3200639267 /* SideProjectTCA */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				84F5AA6A2F3B8E3700639267 /* Exceptions for "SideProjectTCA" folder in "SideProjectTCA" target */,
-				84F5AA6B2F3B8E3700639267 /* Exceptions for "SideProjectTCA" folder in "Compile Sources" phase from "SideProjectTCA" target */,
-			);
 			path = SideProjectTCA;
 			sourceTree = "<group>";
 		};
@@ -617,8 +593,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.23.1;
+				kind = exactVersion;
+				version = 1.22.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
