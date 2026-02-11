@@ -25,18 +25,24 @@ public struct TaskListReducer {
         }
     }
     
-   public enum Action {
+    public enum Action: BindableAction {
         case addButtonTapped
+        case binding(BindingAction<State>)
     }
     
     public var body: some ReducerOf<Self> {
-
+        
+        BindingReducer()
+        
         Reduce { state, action in
             switch action {
             case .addButtonTapped:
                 
-                let task = Task(name: "test", dateCreated: Date())
+                let task = Task(name: state.taskName, dateCreated: Date())
                 state.taskList.append(task)
+                state.taskName = ""
+                return .none
+            case .binding:
                 return .none
             }
         }._printChanges()
@@ -46,7 +52,7 @@ public struct TaskListReducer {
 
 public struct TodoListView: View {
     
-    private let store: StoreOf<TaskListReducer>
+    @Bindable private var store: StoreOf<TaskListReducer>
     
     public init(store: StoreOf<TaskListReducer>) {
         self.store = store
@@ -63,6 +69,12 @@ public struct TodoListView: View {
             }
         }
         Spacer()
+        TextField("", text: $store.taskName)
+            .padding(10)
+            .background(.gray.opacity(0.3))
+            .clipShape(RoundedRectangle(cornerRadius: 8.0))
+            .padding([.leading, .trailing], 32)
+        
         Button {
             store.send(.addButtonTapped)
         } label: {
