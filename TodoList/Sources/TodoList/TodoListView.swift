@@ -39,7 +39,7 @@ public struct TaskListReducer {
                 state.taskList.append(task)
                 return .none
             }
-        }
+        }._printChanges()
     }
     
 }
