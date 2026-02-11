@@ -15,7 +15,7 @@ public struct WrReducer {
         var logo: LogoReducer.State
     }
     
-    public enum Action {
+    public enum Action: Equatable {
         case loadData
         case logo(LogoReducer.Action)
     }
@@ -25,12 +25,14 @@ public struct WrReducer {
 //    var body: some ReducerOf<Self> {
 //        Reduce { state, action in
 //            switch action {
-//                case .loadData:
+//            case .loadData:
 //                return .none
-//            case .logo()
+//            case .logo(let logoAction):
+//                return .none
 //            }
 //        }
 //    }
+//    
 }
 
 extension WrReducer.State {
