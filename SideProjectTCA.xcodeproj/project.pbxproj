@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84AF91CB2F3CE63E00082704 /* TodoList in Frameworks */ = {isa = PBXBuildFile; productRef = 84AF91CA2F3CE63E00082704 /* TodoList */; };
 		84F5AA2B2F3B6DDA00639267 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 84F5AA2A2F3B6DDA00639267 /* ComposableArchitecture */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		84AF91C82F3CE5DB00082704 /* TodoList */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = TodoList; sourceTree = "<group>"; };
 		84F5A9FA2F3B6B3200639267 /* SideProjectTCA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SideProjectTCA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F5AA0C2F3B6B3400639267 /* SideProjectTCATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SideProjectTCATests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F5AA162F3B6B3400639267 /* SideProjectTCAUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SideProjectTCAUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84AF91CB2F3CE63E00082704 /* TodoList in Frameworks */,
 				84F5AA2B2F3B6DDA00639267 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -77,6 +80,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84AF91C92F3CE63E00082704 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		84F5A9F12F3B6B3200639267 = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +94,8 @@
 				84F5AA0F2F3B6B3400639267 /* SideProjectTCATests */,
 				84F5AA192F3B6B3400639267 /* SideProjectTCAUITests */,
 				84F5A9FB2F3B6B3200639267 /* Products */,
+				84AF91C82F3CE5DB00082704 /* TodoList */,
+				84AF91C92F3CE63E00082704 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -118,6 +130,7 @@
 			name = SideProjectTCA;
 			packageProductDependencies = (
 				84F5AA2A2F3B6DDA00639267 /* ComposableArchitecture */,
+				84AF91CA2F3CE63E00082704 /* TodoList */,
 			);
 			productName = SideProjectTCA;
 			productReference = 84F5A9FA2F3B6B3200639267 /* SideProjectTCA.app */;
@@ -600,6 +613,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		84AF91CA2F3CE63E00082704 /* TodoList */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TodoList;
+		};
 		84F5AA2A2F3B6DDA00639267 /* ComposableArchitecture */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 84F5AA292F3B6DDA00639267 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
