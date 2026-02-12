@@ -29,6 +29,11 @@ public struct TaskListReducer {
         case binding(BindingAction<State>)
         case taskFetched([Task])
         case onAppear
+        case eventReceived([Task])
+    }
+    
+    private enum CancelId: Hashable {
+      case cancellation
     }
  
     @Dependency(\.firebaseClient) private var firebase
@@ -45,23 +50,24 @@ public struct TaskListReducer {
                 state.taskList.append(task)
                 state.taskName = ""
                 
-                return .concatenate(
-                    .run { [firebase = self.firebase] send in
-                        try await firebase.saveTask(task)
-                    },
-                    .run { [firebase = self.firebase] send in
-                        let tasks = try await firebase.fetchTask()
-                        await send(.taskFetched(tasks))
-                    }
-                )
+                return .run { [firebase = self.firebase] send in
+                    try await firebase.saveTask(task)
+                }
             case .taskFetched(let tasks):
                 state.taskList = tasks
                 return .none
             case .onAppear:
-                return .run { [firebase = self.firebase] send in
-                    let tasks = try await firebase.fetchTask()
-                    await send(.taskFetched(tasks))
+              return .run { [firebase = self.firebase] send in
+                for await event in try await firebase.changesStream() {
+                  await send(.eventReceived(event))
                 }
+              }
+              .cancellable(id: CancelId.cancellation)
+
+            case .eventReceived(let event):
+              state.taskList = event
+              return .none
+
             case .binding:
                 return .none
             }
