@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Task: Identifiable, Equatable, Codable {
+public struct Task: Identifiable, Equatable, Codable, Sendable {
     public var id: UUID = .init()
     public var name: String
     public var dateCreated: Date
