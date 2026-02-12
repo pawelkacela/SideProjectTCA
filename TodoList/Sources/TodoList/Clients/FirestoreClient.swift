@@ -1,29 +1,35 @@
-//
-//  FirestoreClient.swift
-//  TodoList
-//
-//  Created by Pawel Kacela on 12/02/2026.
-//
+@preconcurrency import FirebaseFirestore
+import Dependencies
 
-import Foundation
-import FirebaseFirestore
 
-final class FirestoreClient {
- 
-    static let shared: Self = .init()
+struct FirebaseClient {
+    var fetchTask: @Sendable () async throws -> [Task]
+    var saveTask: @Sendable (Task) async throws -> Void
+}
+
+extension FirebaseClient: DependencyKey {
     
-    private init { }
-    
-    let dp = Firestore.firestore()
-    
-    func fetchTask async throws -> [Task] {
+    static var liveValue: Self {
+        let db = Firestore.firestore()
+        return FirebaseClient(
+            
+            fetchTask: {
+                let query = try await db.collection("tasks").getDocuments()
+                return try query.documents.compactMap {
+                    try $0.data(as: Task.self)
+                }
+            }, saveTask: { task in
+                try db.collection("tasks").document(task.id.uuidString).setData(from: task)
+            }
+            
+        )
         
-        let query = try await dp.collection("tasks").getDocuments()
-        return try query.documents.compactMap { try $0.data(as: Task.self) }
     }
-    
-    func saveTask(_ task: Task) async throws {
-        try dp.collection("tasks").documents(task.id.uuidString).setData(from: task)
-    } 
-    
+}
+
+extension DependencyValues {
+  var firebaseClient: FirebaseClient {
+    get { self[FirebaseClient.self] }
+    set { self[FirebaseClient.self] = newValue }
+  }
 }
