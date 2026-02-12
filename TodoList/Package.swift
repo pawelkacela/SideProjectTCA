@@ -14,7 +14,9 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(url: "https://github.com/pointfreeco/swift-composable-architecture", exact: "1.22.2")
+        .package(url: "https://github.com/pointfreeco/swift-composable-architecture", exact: "1.22.2"),
+        .package(url: "https://github.com/firebase/firebase-ios-sdk", exact: "12.9.0")
+        
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -22,7 +24,8 @@ let package = Package(
         .target(
             name: "TodoList",
             dependencies: [
-                .product(name: "ComposableArchitecture", package: "swift-composable-architecture")
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+                .product(name: "FirebaseFirestore", package: "Firebase"),
             ],
         ),
         .testTarget(
