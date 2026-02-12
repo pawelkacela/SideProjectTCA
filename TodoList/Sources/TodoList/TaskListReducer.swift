@@ -28,6 +28,7 @@ public struct TaskListReducer {
         case addButtonTapped
         case binding(BindingAction<State>)
         case taskFetched([Task])
+        case onAppear
     }
  
     @Dependency(\.firebaseClient) private var firebase
@@ -56,6 +57,11 @@ public struct TaskListReducer {
             case .taskFetched(let tasks):
                 state.taskList = tasks
                 return .none
+            case .onAppear:
+                return .run { [firebase = self.firebase] send in
+                    let tasks = try await firebase.fetchTask()
+                    await send(.taskFetched(tasks))
+                }
             case .binding:
                 return .none
             }

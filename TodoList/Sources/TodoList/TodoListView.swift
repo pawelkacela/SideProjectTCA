@@ -16,7 +16,7 @@ public struct TodoListView: View {
     public init(store: StoreOf<TaskListReducer>) {
         self.store = store
     }
-
+    
     public var body: some View {
         
         List {
@@ -43,6 +43,7 @@ public struct TodoListView: View {
                 .background(.gray)
         }
         .padding()
+        .onAppear { store.send(.onAppear) }
     }
 }
 
