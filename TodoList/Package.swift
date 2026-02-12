@@ -25,7 +25,7 @@ let package = Package(
             name: "TodoList",
             dependencies: [
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
-                .product(name: "FirebaseFirestore", package: "Firebase"),
+                .product(name: "FirebaseFirestore", package: "FirebaseFirestore"),
             ],
         ),
         .testTarget(
