@@ -27,7 +27,10 @@ public struct TaskListReducer {
     public enum Action: BindableAction {
         case addButtonTapped
         case binding(BindingAction<State>)
+        case taskSaved
     }
+ 
+    @Dependency(\.firebaseClient) private var firebase
     
     public var body: some ReducerOf<Self> {
         
@@ -37,9 +40,20 @@ public struct TaskListReducer {
             switch action {
             case .addButtonTapped:
                 
-                let task = Task(name: state.taskName, dateCreated: Date())
+                let name = state.taskName
+                let date = Date()
+                let task = Task(name: name, dateCreated: date)
                 state.taskList.append(task)
                 state.taskName = ""
+
+                return .run { [name, date, firebase = self.firebase] send in
+                    let task = Task(name: name, dateCreated: date)
+                    try await firebase.saveTask(task)
+                    await send(.taskSaved)
+                }
+                
+            case .taskSaved:
+                print("task saved")
                 return .none
             case .binding:
                 return .none
