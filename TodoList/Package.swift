@@ -15,7 +15,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/pointfreeco/swift-composable-architecture", exact: "1.22.2"),
-        .package(url: "https://github.com/firebase/firebase-ios-sdk", exact: "12.9.0")
+        .package(url: "https://github.com/firebase/firebase-ios-sdk", exact: "12.9.0"),
         
     ],
     targets: [
@@ -25,7 +25,7 @@ let package = Package(
             name: "TodoList",
             dependencies: [
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
-                .product(name: "FirebaseFirestore", package: "FirebaseFirestore"),
+                .product(name: "FirebaseFirestore", package: "firebase-ios-sdk"),
             ],
         ),
         .testTarget(
