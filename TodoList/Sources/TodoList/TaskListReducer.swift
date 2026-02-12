@@ -40,14 +40,11 @@ public struct TaskListReducer {
             switch action {
             case .addButtonTapped:
                 
-                let name = state.taskName
-                let date = Date()
-                let task = Task(name: name, dateCreated: date)
+                let task = Task(name: state.taskName, dateCreated: Date())
                 state.taskList.append(task)
                 state.taskName = ""
-
-                return .run { [name, date, firebase = self.firebase] send in
-                    let task = Task(name: name, dateCreated: date)
+                
+                return .run { [firebase = self.firebase] send in
                     try await firebase.saveTask(task)
                     await send(.taskSaved)
                 }
