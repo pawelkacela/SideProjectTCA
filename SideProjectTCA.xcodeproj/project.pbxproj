@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		84AF91CB2F3CE63E00082704 /* TodoList in Frameworks */ = {isa = PBXBuildFile; productRef = 84AF91CA2F3CE63E00082704 /* TodoList */; };
+		84AF91E92F3E231500082704 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 84AF91E82F3E231500082704 /* FirebaseFirestore */; };
+		84AF91EB2F3E27E400082704 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84AF91EA2F3E27E400082704 /* GoogleService-Info.plist */; };
 		84F5AA2B2F3B6DDA00639267 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 84F5AA2A2F3B6DDA00639267 /* ComposableArchitecture */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		84AF91C82F3CE5DB00082704 /* TodoList */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = TodoList; sourceTree = "<group>"; };
+		84AF91EA2F3E27E400082704 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84F5A9FA2F3B6B3200639267 /* SideProjectTCA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SideProjectTCA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F5AA0C2F3B6B3400639267 /* SideProjectTCATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SideProjectTCATests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F5AA162F3B6B3400639267 /* SideProjectTCAUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SideProjectTCAUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +63,7 @@
 			files = (
 				84AF91CB2F3CE63E00082704 /* TodoList in Frameworks */,
 				84F5AA2B2F3B6DDA00639267 /* ComposableArchitecture in Frameworks */,
+				84AF91E92F3E231500082704 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +94,7 @@
 		84F5A9F12F3B6B3200639267 = {
 			isa = PBXGroup;
 			children = (
+				84AF91EA2F3E27E400082704 /* GoogleService-Info.plist */,
 				84F5A9FC2F3B6B3200639267 /* SideProjectTCA */,
 				84F5AA0F2F3B6B3400639267 /* SideProjectTCATests */,
 				84F5AA192F3B6B3400639267 /* SideProjectTCAUITests */,
@@ -131,6 +136,7 @@
 			packageProductDependencies = (
 				84F5AA2A2F3B6DDA00639267 /* ComposableArchitecture */,
 				84AF91CA2F3CE63E00082704 /* TodoList */,
+				84AF91E82F3E231500082704 /* FirebaseFirestore */,
 			);
 			productName = SideProjectTCA;
 			productReference = 84F5A9FA2F3B6B3200639267 /* SideProjectTCA.app */;
@@ -216,6 +222,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				84F5AA292F3B6DDA00639267 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				84AF91E72F3E231500082704 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 84F5A9FB2F3B6B3200639267 /* Products */;
@@ -234,6 +241,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84AF91EB2F3E27E400082704 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -602,6 +610,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		84AF91E72F3E231500082704 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.9.0;
+			};
+		};
 		84F5AA292F3B6DDA00639267 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
@@ -616,6 +632,11 @@
 		84AF91CA2F3CE63E00082704 /* TodoList */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = TodoList;
+		};
+		84AF91E82F3E231500082704 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 84AF91E72F3E231500082704 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
 		};
 		84F5AA2A2F3B6DDA00639267 /* ComposableArchitecture */ = {
 			isa = XCSwiftPackageProductDependency;
